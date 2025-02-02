@@ -49,6 +49,7 @@ def create_task(request):
     if request.method == "GET":
         return render(request, 'create_task.html', {"form": TaskForm})
     else:
+        
         try:
             form = TaskForm(request.POST)
             new_task = form.save(commit=False)

@@ -11,7 +11,7 @@
       {% else %} {{task.id}} {{task.title}} {% endif %}
       <p>{{task.description}}</p>
 
-      {{task.datecompleted|date:'M j Y:i'}}
+      <h3>{{task.datecompleted|date:'M j Y:i'}}</h3>
     </a>
   </li>
   {% endfor %}
