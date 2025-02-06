@@ -10,23 +10,38 @@
   {% csrf_token %}
   {{form.as_p}}
 
-  <button>
+  <div style="display: flex; gap: 10px; justify-content: space-between; width: 100%;">
+ 
+
+  <br><button 
+  style="flex: 1; background-color: #4CAF50; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
     Update
   </button>
 </form>
 
 <form action="{% url 'complete_task' task.id %}" method="POST">
   {% csrf_token %}
-  <button>
-    complete
+  <br><button 
+  style="flex: 1; background-color: #2196F3; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
+    Complete
   </button>
 </form>
 
 <form action="{% url 'delete_task' task.id %}" method="POST">
   {% csrf_token %}
-  <button>
-    delete
-  </button>
+  <br><button 
+  style="flex: 1; background-color: #f44336; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
+    Delete
+  </button><br>
 </form>
 
 {% endblock %}
+
+<!-- ------------ Estilos ----------- -->
+<!-- flex: 1;: hace que los botones ocupen el mismo ancho, distribuyendo el espacio disponible de manera uniforme entre ellos.
+background-color: Define el color de fondo de cada botón.
+color: white;: Cambia el color del texto dentro del botón a blanco.
+border-radius: 8px;: Da bordes redondeados a los botones.
+padding: 10px;: Añade un poco de espacio dentro de cada botón, para que no se vean tan ajustados.
+border: none;: Elimina cualquier borde predeterminado del botón.
+cursor: pointer;: Cambia el cursor al pasar sobre los botones, indicando que son clicables. -->
