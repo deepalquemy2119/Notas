@@ -47,12 +47,13 @@ def tasks_completed(request):
 @login_required
 def create_task(request):
     if request.method == "GET":
-        return render(request, 'create_task.html', {"form": TaskForm})
+        return render(request, 'create_task.html', {"form": TaskForm()})
     else:
         
         try:
             form = TaskForm(request.POST)
-            new_task = form.save(commit=False)
+            if form.is_valid():
+              new_task = form.save(commit=False)
             new_task.user = request.user
             new_task.save()
             return redirect('tasks')

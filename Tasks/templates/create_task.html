@@ -2,13 +2,48 @@
 
 {% block content %}
 
-<h1>Create task </h1> <br><h3>user:&nbsp;&nbsp;{{user}}</h3><br><br>
+<div class="d-flex justify-content-between align-items-center p-3 mb-4 bg-primary text-white">
+  <!-- Título -->
+  <h1 class="me-4">Create task</h1> 
+
+  <!-- Descripción de Usuario -->
+  <h3 class="ms-4">User: <span class="fw-bold">{{user}}</span></h3>
+</div>
+
+<br>
 
 {{error}}
+
 <form action="/create_task/" method="POST">
   {% csrf_token %}
   {{form}}
 
-  <button>Save</button>
+  <button class="btn btn-success">Save</button>
 </form>
+
 {% endblock %}
+
+<!-- d-flex justify-content-between align-items-center:
+
+    d-flex: Activa el contenedor Flexbox.
+    justify-content-between: Distribuye el espacio entre los elementos, alineando el título a la izquierda y el nombre del usuario a la derecha.
+    align-items-center: Alinea verticalmente los elementos al centro.
+
+p-3 mb-4 bg-primary text-white:
+
+    p-3: Añade relleno (padding) de 3 unidades alrededor del contenedor.
+    mb-4: Añade un margen inferior de 4 unidades para dar espacio debajo de la barra.
+    bg-primary: Le da un fondo de color primario (puedes cambiarlo por otro color como bg-info, bg-dark, etc.).
+    text-white: Cambia el color del texto a blanco.
+
+ms-4 y me-4:
+
+    ms-4 y me-4 agregan márgenes a la izquierda y derecha de los elementos (espacio entre el título y el nombre del usuario).
+
+fw-bold:
+
+    La clase fw-bold pone el texto del nombre de usuario en negrita.
+
+btn btn-success:
+
+    Se usa la clase btn btn-success para estilizar el botón de guardar con un color verde claro. Si prefieres otro color, puedes cambiarlo por clases como btn-primary, btn-danger, etc. -->
