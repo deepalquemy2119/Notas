@@ -2,14 +2,15 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-between align-items-center p-3 mb-4 bg-primary text-white">
-    <!-- Título -->
-  <h3 class="me-1">Create task</h3> 
+<div class="d-flex justify-content-between align-items-center p-1 mb-1 bg-success text-white">
+  <!-- Título -->
+  <h3 class="m-1">Create Task</h3> 
 
   <!-- Descripción de Usuario -->
-  <h3 class="ms-4">User: <span class="fw-bold">{{user}}</span></h3>
-</div>
-
+  <h5 class="m-4">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;User:</h5> <i class="fw m-3">{{user}}&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; </i>
+  </div>
+  
+  
 
 {{error}}
 
@@ -19,19 +20,19 @@
     <div class="d-flex flex-wrap gap-3">
       <!-- Título -->
       <div class="form-group">
-        <label for="{{ form.title.id_for_label }}" class="form-label m-3">Task Title</label><br>
+        <label for="{{ form.title.id_for_label }}" class="form-label m-3"><br>Task Title</label><br>
         <span class="m-3">{{ form.title }}</span>
       </div>
   
       <!-- Descripción -->
       <div class="form-group">
-        <label for="{{ form.description.id_for_label }}" class="form-label ">&nbsp;&nbsp;Task Description</label><br>
+        <label for="{{ form.description.id_for_label }}" class="form-label "><br>&nbsp;&nbsp;Task Description</label><br>
         &nbsp;&nbsp;{{ form.description }}
       </div>
   
       <!-- Importante -->
       <div class="form-group form-check">
-        <label for="{{ form.important.id_for_label }}" class="form-check-label">&nbsp;&nbsp;Mark as Important&nbsp;&nbsp;</label>
+        <label for="{{ form.important.id_for_label }}" class="form-check-label"><br><br>&nbsp;&nbsp;Mark as Important&nbsp;&nbsp;</label>
         {{ form.important }}
       </div>
     </div>
