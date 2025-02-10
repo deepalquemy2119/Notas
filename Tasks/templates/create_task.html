@@ -3,23 +3,51 @@
 {% block content %}
 
 <div class="d-flex justify-content-between align-items-center p-3 mb-4 bg-primary text-white">
-  <!-- Título -->
-  <h1 class="me-4">Create task</h1> 
+    <!-- Título -->
+  <h3 class="me-1">Create task</h3> 
 
   <!-- Descripción de Usuario -->
   <h3 class="ms-4">User: <span class="fw-bold">{{user}}</span></h3>
 </div>
 
-<br>
 
 {{error}}
 
 <form action="/create_task/" method="POST">
-  {% csrf_token %}
-  {{form}}
+    {% csrf_token %}
+  
+    <div class="d-flex flex-wrap gap-3">
+      <!-- Título -->
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}" class="form-label m-3">Task Title</label><br>
+        <span class="m-3">{{ form.title }}</span>
+      </div>
+  
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="{{ form.description.id_for_label }}" class="form-label ">&nbsp;&nbsp;Task Description</label><br>
+        &nbsp;&nbsp;{{ form.description }}
+      </div>
+  
+      <!-- Importante -->
+      <div class="form-group form-check">
+        <label for="{{ form.important.id_for_label }}" class="form-check-label">&nbsp;&nbsp;Mark as Important&nbsp;&nbsp;</label>
+        {{ form.important }}
+      </div>
+    </div>
+  
+    <button class="btn btn-success m-2">Save</button>
+  </form>
 
-  <button class="btn btn-success">Save</button>
-</form>
+<!-- 
+  
+Cada campo se muestra individualmente como {{ form.title }}, {{ form.description }}, y {{ form.important }}, lo que te permite aplicar clases o personalizar su presentación como desees.
+Puedes agregar etiquetas <label> de manera explícita si quieres tener control sobre cómo se muestran los textos, o utilizar {{ form.field_name.label }} para acceder a las etiquetas predeterminadas de Django.
+Si usas la clase form-control de Bootstrap, como se mostró en el forms.py, los inputs se verán con un estilo más organizado y limpio.
+
+
+-->
+
 
 {% endblock %}
 

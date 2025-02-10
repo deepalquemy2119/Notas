@@ -10,27 +10,26 @@
   {% csrf_token %}
   {{form.as_p}}
 
-  <div style="display: flex; gap: 10px; justify-content: space-between; width: 100%;">
+  <div style="display: flex;">
  
 
-  <br><button 
-  style="flex: 1; background-color: #4CAF50; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
+  <button class="btn btn-primary m-2">
     Update
   </button>
 </form>
 
 <form action="{% url 'complete_task' task.id %}" method="POST">
   {% csrf_token %}
-  <br><button 
-  style="flex: 1; background-color: #2196F3; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
+  <button 
+  class="btn btn-warning m-2">
     Complete
   </button>
 </form>
 
 <form action="{% url 'delete_task' task.id %}" method="POST">
   {% csrf_token %}
-  <br><button 
-  style="flex: 1; background-color: #f44336; color: white; border-radius: 8px; padding: 10px; border: none; cursor: pointer; width: 100%;">
+  <button 
+   class="btn btn-danger m-2">
     Delete
   </button><br>
 </form>

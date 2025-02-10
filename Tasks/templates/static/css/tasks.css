@@ -1,0 +1,7 @@
+.task-title {
+    margin-right: 20px;  /* Ajusta el espacio entre el título de la tarea y la fecha */
+  }
+  
+  .task-date {
+    text-align: right;
+  }

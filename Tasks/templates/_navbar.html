@@ -14,17 +14,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a href="/" class="nav-link"></a>
-        </li>
+        <!-- <li class="nav-item">
+          <a href="/" class="nav-link">Hola</a>
+        </li> -->
         {% if user.is_authenticated %}
 
         <li class="nav-item">
-          <a href="{% url 'create_task' %}" class="nav-link">Create</a>
+          <a href="{% url 'create_task' %}" class="nav-link">Task Create</a>
         </li>
         <li class="nav-item">
           <a href="{% url 'tasks_completed' %}" class="nav-link"
-            >Completed</a
+            >Tasks Completed</a
           >
          
         </li>
