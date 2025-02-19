@@ -5,3 +5,10 @@
   .task-date {
     text-align: right;
   }
+
+  .task-not-important {
+    background-color: #FF6347;  /* Color de fondo llamativo, rojo */
+    color: white;  /* Texto blanco para contraste */
+    padding: 10px;  /* Espaciado alrededor del texto */
+    border-radius: 5px;  /* Bordes redondeados si deseas */
+}

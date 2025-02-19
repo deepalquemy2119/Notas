@@ -16,8 +16,12 @@ from .forms import TaskForm
 
 
 def signup(request):
-    if request.method == 'GET':
-        return render(request, 'signup.html', {"form": UserCreationForm})
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+        # return render(request, 'signup.html', {"form": UserCreationForm})
     else:
 
         if request.POST["password1"] == request.POST["password2"]:
@@ -31,6 +35,25 @@ def signup(request):
                 return render(request, 'signup.html', {"form": UserCreationForm, "error": "Username already exists."})
 
         return render(request, 'signup.html', {"form": UserCreationForm, "error": "Passwords did not match."})
+
+
+
+""" from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # O redirige a una página de éxito
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+ """
+
+
+
 
 
 @login_required

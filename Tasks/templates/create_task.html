@@ -2,53 +2,51 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-between align-items-center p-1 mb-1 bg-success text-white">
-  <!-- Título -->
-  <h3 class="m-1">Create Task</h3> 
 
-  <!-- Descripción de Usuario -->
-  <h5 class="m-4">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;User:</h5> <i class="fw m-3">{{user}}&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; </i>
-  </div>
-  
-  
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 mt-5">
 
-{{error}}
 
-<form action="/create_task/" method="POST">
+<form action="/create_task/" method="POST" class="card card-body m-3">
     {% csrf_token %}
-  
-    <div class="d-flex flex-wrap gap-3">
+    
+    
+    {{error}}
+
+      <h3 class="m-1">Create Task</h3>
+    <!-- <div class="d-flex justify-content-between align-items-center p-1 mb-1 bg-success text-white"> -->
+
       <!-- Título -->
-      <div class="form-group">
-        <label for="{{ form.title.id_for_label }}" class="form-label m-3"><br>Task Title</label><br>
-        <span class="m-3">{{ form.title }}</span>
-      </div>
-  
-      <!-- Descripción -->
-      <div class="form-group">
-        <label for="{{ form.description.id_for_label }}" class="form-label "><br>&nbsp;&nbsp;Task Description</label><br>
-        &nbsp;&nbsp;{{ form.description }}
-      </div>
-  
-      <!-- Importante -->
-      <div class="form-group form-check">
-        <label for="{{ form.important.id_for_label }}" class="form-check-label"><br><br>&nbsp;&nbsp;Mark as Important&nbsp;&nbsp;</label>
-        {{ form.important }}
-      </div>
-    </div>
-  
-    <button class="btn btn-success m-2">Save</button>
+       
+    
+      <!-- Descripción de Usuario -->
+       
+      <h5 class="m-3 text-primary">User: <i class="fw">&nbsp;&nbsp; &nbsp;&nbsp;{{user}}</i></h5>
+    
+      
+      
+    
+
+    
+
+    {{form}}
+    <button class="btn btn-success ">Save</button>
   </form>
 
 <!-- 
   
-Cada campo se muestra individualmente como {{ form.title }}, {{ form.description }}, y {{ form.important }}, lo que te permite aplicar clases o personalizar su presentación como desees.
-Puedes agregar etiquetas <label> de manera explícita si quieres tener control sobre cómo se muestran los textos, o utilizar {{ form.field_name.label }} para acceder a las etiquetas predeterminadas de Django.
-Si usas la clase form-control de Bootstrap, como se mostró en el forms.py, los inputs se verán con un estilo más organizado y limpio.
+Cada campo se muestra individualmente como {{ form.title }}, {{ form.description }}, y {{ form.important }}, lo que  permite aplicar clases.
+Agregar etiquetas <label> de manera explícita para control sobre cómo se muestran los textos, o usar{{ form.field_name.label }} para acceder a las etiquetas predeterminadas de Django.
+la clase form-control de Bootstrap, como se mostró en el forms.py, los inputs se verán con un estilo más organizado y limpio.
 
 
 -->
 
+    </div>
+  </div>
+
+</main>
 
 {% endblock %}
 

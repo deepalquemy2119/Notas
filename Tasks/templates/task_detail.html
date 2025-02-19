@@ -2,7 +2,10 @@
 
 {% block content %}<br>
 
-{{error}}
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      {{error}}
 
 <form method="POST">
   {% csrf_token %}
@@ -57,8 +60,11 @@
 
   <button action="{% url 'delete_task' task.id %}" method="POST" class="btn btn-danger m-2">
     Delete
-  </button><br>
+  </button>
 </form>
+    </div>
+  </div>
+</main>
 
 {% endblock %}
 

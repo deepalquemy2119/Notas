@@ -1,48 +1,57 @@
 {% extends 'base.html' %}
-<!-- {% load tz %} -->
 
-<!-- {% load static %} -->
 
 {% block content %}
 
+
+<!-- Para mostrar y resaltar las tareas NO importantes -->
 <!-- <head>
-  
-  <link rel="stylesheet" href="{% static 'templates/static/css/tasks.css' %}">
+ 
+  <style>
+    .task-not-important {
+        background-color: #7d489c;  /* Color de fondo llamativo, rojo */
+        color: white;  /* Texto blanco para contraste */
+        padding: 10px;  /* Espaciado alrededor del texto */
+        border-radius: 5px;  /* Bordes redondeados si deseas */
+    }
+</style>
+
 </head> -->
-
-<h3 class="text-center display-3 py-3"> &nbsp; Tasks &nbsp;Pending</h3>
-
-<div class="d-flex justify-content-between align-items-center p-3 mb-4 bg-primary text-white"> 
-  <!-- Descripción de Usuario -->
-  <h5 class="ms-4">User: <span class="fw-bold">&nbsp;&nbsp;{{user}}</span></h5>
-</div>
 
 <main class="container">
 
   <div class="row">
     <div class="col-md-6 offset-md-3">
 
-      <ul>
+
+<h3 class="text-center display-3 py-3">Tasks &nbsp;Pending</h3>
+
+<ul class="list-group">
+
+<div class="d-flex justify-content-between align-items-center p-3 mb-4 bg-primary text-white"> 
+  <!-- Descripción de Usuario -->
+  <h5 class="m-2">User: <span class="fw">&nbsp;&nbsp;{{user}}</span></h5>
+</div>
+
+
+   
         {% for task in tasks %}
+      
         <a class="list-group-item" href="{% url 'task_detail' task.id %}">
           
-            <header class="d-flex justify-content-between">
+            <header class="d-flex justify-content-between m-1">
               {% if task.important %}
-                <h3 class="fw-bold text-success">{{task.title}}</h3>
+                <h3 class="fw text-success m-1">{{task.title}}</h3>
               {% else %}
-                {{task.title}}
+                <h5 class="fw m-1 task-not-important" >{{task.title}}</h5>
               {% endif %}
-
               <!-- <p>{{task.user.username}}</p> -->
             </header>
-
-            <!-- <span class="task-title">
-              
-            </span> -->
-      
-            <span class="task-date m">{{ task.datecompleted|localtime|date:"M d, Y h:i A" }} &nbsp;</span>
+       
+            <p class="task-date m-1">{{ task.datecompleted|date:"M d, Y h:i A" }}</p>
           
         </a>
+      
         {% endfor %}
       </ul>
       
@@ -52,6 +61,7 @@
 
 
 </main>
+
 
 
 {% endblock %}
