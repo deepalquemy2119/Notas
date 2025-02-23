@@ -5,13 +5,17 @@
 <main class="container">
 
 
+<<<<<<< HEAD
     <section class="col-md-4 offset-md-4 mt-5">
+=======
+  <section class="col-md-4 offset-md-4 mt-5">
+>>>>>>> 56e440b (solucion home)
       <form action="/signup/" method="POST" class="card card-body">
       <h3 class="text-center m-3">Sign Up</h3>
   
       {% csrf_token %}
 
-      <p>{{error}}</p>
+    <p>  {{error}}</p>
   
        <div class="mb-3">
         <label for="username">Username: </label>
@@ -24,15 +28,20 @@
        </div>
 
        <div class="mb-3">
-        <label for="password2">Password: </label>
+        <label for="password2">Confirm your password: </label>
         <input type="password" name="password2" id="password2" class="form-control" placeholder="confirn your pass">
        </div>
   
     <button class="btn btn-warning m-3">Sign Up</button>
     </form>
+<<<<<<< HEAD
   </section>
 
   
+=======
+    </section>
+   
+>>>>>>> 56e440b (solucion home)
 
 </main>
 {% endblock %}
