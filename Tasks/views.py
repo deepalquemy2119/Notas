@@ -16,16 +16,25 @@ from .forms import TaskForm
 
 
 def signup(request):
+    password1 = request.POST.get("password1")
+    password2 = request.POST.get("password2")
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
-        
     else:
 
-        error: "error"
 
+        if (password1 and password2) and (password1 == password2):
+            try:
+                user = User.objects.create_user(
+                    request.POST["username"], password=request.POST["password1"])
+                user.save()
+                login(request, user)
+                return redirect('tasks')
+            except IntegrityError:
+                return render(request, 'signup.html', {"form": UserCreationForm, "error": "Username already exists."})
     return render(request, 'signup.html')
 
 

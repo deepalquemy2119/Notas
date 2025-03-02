@@ -1,0 +1,137 @@
+Generador de Docs:  
+    1. MkDocs
+MkDocs es una herramienta de documentación estática que usa archivos Markdown para generar la documentación. Es especialmente popular para proyectos más simples o cuando se prefiere trabajar directamente con Markdown en lugar de reStructuredText (como Sphinx).
+
+Características:
+Basado en Markdown: Usa archivos .md para escribir la documentación, lo que hace que sea fácil y accesible para muchos desarrolladores.
+Generación rápida de documentación: Se enfoca en crear documentación estática de manera rápida y fácil.
+Temas personalizables: Viene con una serie de temas predefinidos, y puedes crear o modificar temas para ajustarlos a tus necesidades.
+Integración fácil con GitHub Pages: Perfecto para publicar documentación de proyectos directamente en GitHub Pages.
+Instalación:
+bash
+Copiar
+pip install mkdocs
+Uso básico:
+Inicializa un proyecto de MkDocs:
+
+bash
+Copiar
+mkdocs new my-project
+Para generar la documentación:
+
+bash
+Copiar
+mkdocs serve
+2. pdoc
+pdoc es una herramienta ligera y sencilla que genera documentación a partir de los docstrings en tu código. Es particularmente útil cuando prefieres algo minimalista y basado en docstrings sin la necesidad de configuraciones complejas.
+
+Características:
+Automática a partir de docstrings: Extrae la documentación directamente desde los docstrings de tu código Python.
+Documentación de APIs: Ideal para proyectos de API, ya que genera documentación de forma sencilla y elegante.
+Generación de HTML: Produce documentación en formato HTML, que se puede servir fácilmente.
+Instalación:
+bash
+Copiar
+pip install pdoc
+Uso básico:
+bash
+Copiar
+pdoc --html myproject
+3. Doxygen
+Doxygen es una herramienta que genera documentación a partir de comentarios en el código fuente. Aunque es más conocida en proyectos C/C++, también es compatible con Python.
+
+Características:
+Compatible con varios lenguajes: No solo Python, sino también C, C++, Java, y otros lenguajes.
+Generación de diagramas: Ofrece integración con Graphviz para generar diagramas de clases, flujos de llamada, etc.
+Documentación en HTML, LaTeX, PDF, etc.: Puede generar documentación en varios formatos, lo que la hace flexible y adecuada para proyectos grandes.
+Instalación:
+Puedes descargar Doxygen desde su sitio web oficial o usarlo a través de tu gestor de paquetes.
+
+Uso básico:
+Crea un archivo de configuración:
+
+bash
+Copiar
+doxygen -g
+Edita el archivo Doxyfile generado para configurar tu proyecto y luego ejecuta:
+
+bash
+Copiar
+doxygen Doxyfile
+4. DocFX
+DocFX es una herramienta de generación de documentación que es bastante popular en proyectos .NET, pero también es compatible con proyectos Python. Ofrece una forma robusta de generar documentación estática y dinámicamente actualizada.
+
+Características:
+Generación de documentación estática: Soporta Markdown y puede generar documentación estática, incluyendo API documentation.
+Temas y personalización: Permite personalizar completamente la apariencia de la documentación.
+Multiplataforma: Funciona en Windows, Linux y macOS.
+Integración con GitHub Pages: Puedes publicar tu documentación directamente en GitHub Pages.
+Instalación:
+bash
+Copiar
+brew install docfx   # En macOS
+Uso básico:
+Inicializa un nuevo proyecto DocFX:
+
+bash
+Copiar
+docfx init -q
+Genera la documentación:
+
+bash
+Copiar
+docfx
+5. Django REST Framework Docs (drf-yasg)
+Si estás utilizando Django REST Framework para crear una API, drf-yasg es una excelente opción para generar documentación interactiva automáticamente en formato Swagger.
+
+Características:
+Generación automática de documentación para APIs: Genera la documentación de la API directamente desde las vistas y serializadores de Django REST Framework.
+Soporte de Swagger: Puedes obtener una interfaz interactiva donde los usuarios pueden probar las API directamente desde la documentación.
+Personalización fácil: Puedes personalizar los esquemas y las descripciones.
+Instalación:
+bash
+Copiar
+pip install drf-yasg
+Uso básico:
+Configura en tu archivo urls.py:
+python
+Copiar
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="My API",
+      default_version='v1',
+      description="Documentación de mi API",
+      terms_of_service="https://www.google.com/policies/terms/",
+      contact=openapi.Contact(email="contact@myapi.local"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
+
+urlpatterns = [
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+]
+6. Asciidoctor
+Asciidoctor es una herramienta de documentación basada en el lenguaje de marcado AsciiDoc. Es una opción excelente si prefieres un formato de marcado más expresivo y flexible que Markdown, pero sin la complejidad de reStructuredText.
+
+Características:
+Formato AsciiDoc: Usando archivos .adoc puedes generar documentación estructurada.
+Generación de HTML, PDF, etc.: Al igual que Sphinx, soporta múltiples formatos de salida.
+Integración con otras herramientas: Asciidoctor es parte de un ecosistema más grande que incluye herramientas como Asciidoctor PDF.
+Instalación:
+bash
+Copiar
+gem install asciidoctor
+Uso básico:
+bash
+Copiar
+asciidoctor myfile.adoc
+Conclusión
+La herramienta que elijas dependerá del tipo de proyecto que estás desarrollando y tus preferencias personales. Algunas herramientas son más adecuadas para proyectos pequeños y rápidos como MkDocs o pdoc, mientras que otras como Doxygen o Sphinx son más poderosas y flexibles para proyectos grandes y complejos. Si trabajas con Django REST Framework, drf-yasg es una excelente opción para la documentación de APIs.
+
+La elección también depende de si prefieres trabajar con Markdown, reStructuredText o AsciiDoc, ya que cada herramienta tiene su propio formato de marcado preferido.

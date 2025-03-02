@@ -19,4 +19,4 @@ class TaskForm(forms.ModelForm):
         # error_messages = {
         #     'title': {'required': 'Please enter a task title.'},
         #     'description': {'required': 'Please enter a task description.'},
-        # }
+        # } 
